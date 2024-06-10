@@ -30,14 +30,13 @@ age_dict = {row.Roky: row.Procenta for (index, row) in df_age_percentage.iterrow
 
 
 def count():
-    selected_rank = value_rank.get()
-    selected_age = value_age.get()   
+    selected_age = value_age.get()  
+    selected_rank = value_rank .get()
     counted_salary = hodnost_dict.get(selected_rank)
     counted_percentage = age_dict.get(int(selected_age))
     selected_extra_money = extra_money_spinbox.get()
-    renta = int(round((counted_salary + (counted_salary * (float(counted_percentage) / 100))) * counted_percentage, 0))
-    canvas.delete(rank_label)
-    canvas.create_text(200, 100, text=renta, fill= BLUE, font=(FONT, 30, "bold"))
+    renta = int(round((counted_salary + (counted_salary * (float(selected_extra_money) / 100))) * counted_percentage, 0))
+    canvas.itemconfig(result_text, text=renta)
     return renta
     
 
@@ -87,7 +86,7 @@ money_image.img = money_image
 resized_img = money_image.subsample(2,2)
 canvas = Canvas(window, height=200, width=400, background=BLACK, highlightthickness=0)
 canvas.create_image(window.winfo_reqwidth(), window.winfo_reqheight()/2, image=resized_img)
-rank_label = canvas.create_text(200, 100, text="0", fill= BLUE, font=(FONT, 30, "bold"))
+result_text = canvas.create_text(200, 100, text="0", fill= BLUE, font=(FONT, 30, "bold"))
 canvas.grid(row=3, column=0, columnspan=3)
 
 
