@@ -49,6 +49,7 @@ window.configure(bg=BLACK, padx=20, pady=20, )
 window.resizable(False, False)
 window.iconbitmap("soldier_icon.ico")
 
+
 header = Label(text="Renta AČR Kalkulačka",pady=10, bg=BLACK, fg=BLUE, font=(FONT, 24, "bold"))
 header.grid(row=0, column=1, columnspan=3)
 
