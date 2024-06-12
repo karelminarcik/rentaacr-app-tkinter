@@ -30,6 +30,7 @@ age_dict = {row.Roky: row.Procenta for (index, row) in df_age_percentage.iterrow
 
 
 def count():
+    """count rent amounth from choosen values"""
     selected_age = value_age.get()  
     selected_rank = value_rank .get()
     counted_salary = hodnost_dict.get(selected_rank)
@@ -40,7 +41,7 @@ def count():
     return renta
     
 
-
+# Creating GUI for the app in tkinter
 window = Tk()
 window.title("Renta AČR")
 window.geometry("700x500")
@@ -77,10 +78,12 @@ age_dropdown_menu = OptionMenu( window , value_age , *age)
 age_dropdown_menu.configure(bg=BLUE, fg=GREY, width=12, activebackground=BLACK, activeforeground=BLUE, font=(FONT, 16), cursor="hand2")
 age_dropdown_menu.grid(row=2, column=1)
 
+# Create a spinbox for choosing amounth from 0 to 20
 extra_money_spinbox = Spinbox(window, from_=0, to=20, width=12, font=(FONT, 16), bg=BLUE, fg=BLACK)
 extra_money_spinbox.config(state="normal", cursor="hand2", bd=3, justify="center", wrap=True, )
 extra_money_spinbox.grid(row=2,column=2)
 
+# Create canvas with image for displaying result - renta amounth 
 money_image = PhotoImage(file='money.png')
 money_image.img = money_image
 resized_img = money_image.subsample(2,2)
